@@ -9,7 +9,7 @@ Right now, the program only works while the key bindings are set to the default 
 XBox Remote				Game
 
 A                 A
-B						      B
-D-Pad					    Arrow-Keys
-Left Bumper				Left
-Right Bumper			Right
+B                 B
+D-Pad             Arrow-Keys
+Left Bumper       Left
+Right Bumper      Right
