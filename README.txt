@@ -1,4 +1,4 @@
-Poketroller 1.3
+Poketroller 2.0
 ================
 
 Use your Xbox Remote to play PokeMMO

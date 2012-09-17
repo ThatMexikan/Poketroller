@@ -13,7 +13,11 @@
 #Persistent
 #NoEnv
 
-TrayTip, Poketroller 1.3, Running..., 1, 1
+url := "https://github.com/ThatMexikan/Poketroller/blob/master/poketroller.exe?raw=true"
+filename := "poketroller.exe"
+
+TrayTip, Poketroller 2.0, Running..., 1, 1
+UrlDownloadToFile, %url%, %filename% ; download the copy on GitHub on startup
 SetTimer, WindowStatus
 
 Joy9::Pause
@@ -28,6 +32,48 @@ WindowStatus:
 	{
 		SetTimer, WatchPOV, Off
 	}
+return
+
+; arrow keys
+WatchPOV:
+	GetKeyState, POV, JoyPOV
+	
+	if POV = 0			; up
+	{
+		SendInput {Right up}
+		SendInput {Down up}
+		SendInput {Left up}	
+		SendInput {Up down}
+	}
+	else if POV = 9000	; right
+	{
+		SendInput {Up up}
+		SendInput {Down up}
+		SendInput {Left up}
+		SendInput {Right down}
+	}
+	else if POV = 18000	; down
+	{
+		SendInput {Up up}
+		SendInput {Right up}
+		SendInput {Left up}
+		SendInput {Down down}
+	}
+	else if POV = 27000	; left
+	{
+		SendInput {Up up}
+		SendInput {Right up}
+		SendInput {Down up}
+		SendInput {Left down}
+	}
+	else if POV = -1 	; no keys are pressed
+	{
+		SendInput {Up up}
+		SendInput {Right up}
+		SendInput {Down up}
+		SendInput {Left up}
+	}
+		
 return
 
 #IfWinActive ahk_class LWJGL
@@ -54,47 +100,6 @@ return
 	
 	Shift::SendInput {Shift} ; Fixes in-game problem with [Shift] key
 	
-	; arrow keys
-	WatchPOV:
-		GetKeyState, POV, JoyPOV
-		
-		if POV = 0			; up
-		{
-			SendInput {Right up}
-			SendInput {Down up}
-			SendInput {Left up}	
-			SendInput {Up down}
-		}
-		else if POV = 9000	; right
-		{
-			SendInput {Up up}
-			SendInput {Down up}
-			SendInput {Left up}
-			SendInput {Right down}
-		}
-		else if POV = 18000	; down
-		{
-			SendInput {Up up}
-			SendInput {Right up}
-			SendInput {Left up}
-			SendInput {Down down}
-		}
-		else if POV = 27000	; left
-		{
-			SendInput {Up up}
-			SendInput {Right up}
-			SendInput {Down up}
-			SendInput {Left down}
-		}
-		else if POV = -1 	; no keys are pressed
-		{
-			SendInput {Up up}
-			SendInput {Right up}
-			SendInput {Down up}
-			SendInput {Left up}
-		}
-			
-	return
 }
 
 #IfWinActive
