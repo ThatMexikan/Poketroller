@@ -1,5 +1,5 @@
-Poketroller
-===========
+Poketroller 1.3
+================
 
 Use your Xbox Remote to play PokeMMO
 ************************************
@@ -10,6 +10,8 @@ XBox Remote       Game
 
 A                 A
 B                 B
+X                 F1
+Y                 F2
 D-Pad             Arrow-Keys
 Left Bumper       Left
 Right Bumper      Right

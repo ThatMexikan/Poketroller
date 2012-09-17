@@ -1,13 +1,11 @@
-; This program is free software: you can redistribute it and/or modify 
+; Louis Sandoval
+; September 13, 2012
+
+; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
 ; the Free Software Foundation, either version 3 of the License, or
 ; (at your option) any later version.
-
-; This program is distributed in the hope that it will be useful,
-; but WITHOUT ANY WARRANTY; without even the implied warranty of
-; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-; GNU General Public License for more details.
-
+; 
 ; You should have received a copy of the GNU General Public License
 ; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -15,10 +13,22 @@
 #Persistent
 #NoEnv
 
-TrayTip, Poketroller 1.0, Running..., 1, 1
-SetTimer, WatchPOV, 5 ; start POV timer
+TrayTip, Poketroller 1.3, Running..., 1, 1
+SetTimer, WindowStatus
 
 Joy9::Pause
+
+WindowStatus: 
+	; Makes WatchPOV context-sensitive
+	IfWinActive, PokeMMO
+	{
+		SetTimer, WatchPOV, 5
+	}
+	IfWinNotActive, PokeMMO
+	{
+		SetTimer, WatchPOV, Off
+	}
+return
 
 #IfWinActive ahk_class LWJGL
 {	
@@ -34,13 +44,15 @@ Joy9::Pause
 		SendInput {X up}
 	return
 
-	Joy3::SendInput {F13} ; X - Null
-	Joy4::SendInput {F13} ; Y - Null
+	Joy3::SendInput {F1} ; X
+	Joy4::SendInput {F2} ; Y 
 	Joy5::SendInput {Left} ; Left Bumper
 	Joy6::SendInput {Right} ; Right Bumper
 
 	Joy8::SendInput {F10} ; Start - Menu
 	Joy7::SendInput {B} ; Select - Bag
+	
+	Shift::SendInput {Shift} ; Fixes in-game problem with [Shift] key
 	
 	; arrow keys
 	WatchPOV:
