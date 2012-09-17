@@ -1,12 +1,12 @@
 Poketroller 2.0
 ================
 
-Use your Xbox Remote to play PokeMMO
+Use your Xbox Controller to play PokeMMO
 ************************************
 
 Right now, the program only works while the key bindings are set to the default values in the game.
 
-XBox Remote       Game
+XBox Controller   Game
 
 A                 A
 B                 B
