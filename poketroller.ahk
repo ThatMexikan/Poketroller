@@ -13,11 +13,7 @@
 #Persistent
 #NoEnv
 
-url := "https://github.com/ThatMexikan/Poketroller/blob/master/poketroller.exe?raw=true"
-filename := "poketroller.exe"
-
 TrayTip, Poketroller 2.0, Running..., 1, 1
-UrlDownloadToFile, %url%, %filename% ; download the copy on GitHub on startup
 SetTimer, WindowStatus
 
 Joy9::Pause
